@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+This is the Maven project definition for the the JJ2000 library.  Assuming you
+have Maven installed, you would build the jar by issuing the following command:
+
+    mvn install
+
+Assuming all goes well, the "target" directory should now contain a jar named
+"jj2000-5.2-SNAPSHOT" (or whatever version is current).  (The "install" Maven
+goal will also copy the jar to your local Maven repository.)
+
+If you want to tinker with the source in Eclipse, issue the following command:
+
+    mvn eclipse:eclipse
+
+This will generate the necessary Eclipse project files.  Then from Eclipse,
+choose the option to import an existing project into your workspace.  Navigate
+to this directory, select the project from the list, and you should be off and
+running.
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>jpeg2000.epfl.ch</groupId>
+	<artifactId>jj2000</artifactId>
+	<version>5.2-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<build>
+		<plugins>
+			<!--
+				The following plugin element tells the compiler to use JDK 1.3
+				compliance settings.  This is needed because the JJ2000 code
+				uses "enum" as a variable name which isn't legal in JDK 1.6.
+				It also makes the jar usable with older JDKs.
+			-->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.3</source>
+					<target>1.3</target>
+				</configuration>
+			</plugin>
+			
+			<!--
+				Eclipse keeps its own compiler settings about whether it will
+				allow "enum" as a variable name.  (It'd be nice if it used
+				the default for your chosen source and target.  But it doesn't.)
+				So the following is a hokey way of getting that set up right
+				automatically by manually creating the appropriate Eclipse
+				config file.
+			-->
+			<plugin>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<configuration>
+					<additionalConfig>
+						<file>
+							<name>.settings/org.eclipse.jdt.core.prefs</name>
+							<content>
+								eclipse.preferences.version=1
+								org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.3
+								org.eclipse.jdt.core.compiler.source=1.3
+								org.eclipse.jdt.core.compiler.compliance=1.3
+								org.eclipse.jdt.core.compiler.problem.enumIdentifier=warning
+							</content>
+						</file>
+					</additionalConfig>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
