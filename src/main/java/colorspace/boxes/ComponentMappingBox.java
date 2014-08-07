@@ -75,9 +75,9 @@ public final class ComponentMappingBox extends JP2Box
     public String toString () {
         StringBuffer rep = new StringBuffer ("[ComponentMappingBox ").append("  ");
         rep.append("nChannels= ").append(String.valueOf(nChannels));
-        Enumeration enum = map.elements();
-        while (enum.hasMoreElements()) {
-            byte [] bfr = (byte[]) enum.nextElement();
+        Enumeration en = map.elements();
+        while (en.hasMoreElements()) {
+            byte [] bfr = (byte[]) en.nextElement();
             rep.append(eol).append("  ").append("CMP= ").append(String.valueOf(getCMP(bfr))).append(", ");
             rep.append("MTYP= ").append(String.valueOf(getMTYP(bfr))).append(", ");
             rep.append("PCOL= ").append(String.valueOf(getPCOL(bfr))); }

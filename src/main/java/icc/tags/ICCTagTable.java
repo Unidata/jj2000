@@ -99,9 +99,9 @@ public class ICCTagTable extends Hashtable
             offset+=3*ICCProfile.int_size; }
 
 
-        Enumeration enum = trios.elements();
-        while (enum.hasMoreElements()) {
-            Triplet trio = (Triplet) enum.nextElement();
+        Enumeration en = trios.elements();
+        while (en.hasMoreElements()) {
+            Triplet trio = (Triplet) en.nextElement();
             ICCTag tag = ICCTag.createInstance (trio.signature, data, trio.offset, trio.count);
             put (new Integer(tag.signature), tag); }
     }
@@ -126,9 +126,9 @@ public class ICCTagTable extends Hashtable
         int currentTagOff  = tagOff;
         int currentDataOff = dataOff;
 
-        Enumeration enum = trios.elements();
-        while (enum.hasMoreElements()) {
-            Triplet trio = (Triplet) enum.nextElement();
+        Enumeration en = trios.elements();
+        while (en.hasMoreElements()) {
+            Triplet trio = (Triplet) en.nextElement();
             ICCTag tag = (ICCTag) get (new Integer(trio.signature));
             
             raf.seek (currentTagOff);

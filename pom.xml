@@ -32,17 +32,11 @@ running.
 
 	<build>
 		<plugins>
-			<!--
-				The following plugin element tells the compiler to use JDK 1.3
-				compliance settings.  This is needed because the JJ2000 code
-				uses "enum" as a variable name which isn't legal in JDK 1.6.
-				It also makes the jar usable with older JDKs.
-			-->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.3</source>
-					<target>1.3</target>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 		</plugins>

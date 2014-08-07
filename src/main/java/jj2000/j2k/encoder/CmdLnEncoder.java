@@ -146,11 +146,11 @@ public class CmdLnEncoder{
                 System.out.println("[WARNING] Could not close the argument file"+
 				   " after reading");
             }
-            Enumeration enum = tmpPl.keys();
+            Enumeration en = tmpPl.keys();
             String str;
 
-            while(enum.hasMoreElements()){
-                str = (String)enum.nextElement();
+            while(en.hasMoreElements()){
+                str = (String)en.nextElement();
                 if(pl.get(str)==null){
                     pl.put(str,tmpPl.get(str));
                 }

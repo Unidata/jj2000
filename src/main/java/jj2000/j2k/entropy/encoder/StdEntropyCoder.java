@@ -1044,11 +1044,11 @@ public class StdEntropyCoder extends EntropyCoder
                     sb.append(time[c]);
                     sb.append(" ms");
                 }
-                Enumeration enum = idleComps.elements();
+                Enumeration en = idleComps.elements();
                 sb.append("\nStdEntropyCoder compressor threads wall clock "+
                           "time:");
-                while (enum.hasMoreElements()) {
-                    compr = (Compressor)(enum.nextElement());
+                while (en.hasMoreElements()) {
+                    compr = (Compressor)(en.nextElement());
                     for (c=0; c<time.length; c++) {
                         sb.append("\n  compressor ");
                         sb.append(compr.getIdx());
