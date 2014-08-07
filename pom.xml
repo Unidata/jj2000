@@ -23,6 +23,9 @@ running.
 -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<properties>
+	    <project.build.sourceEncoding>ISO8859-1</project.build.sourceEncoding>
+	</properties>
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>edu.ucar</groupId>
@@ -34,6 +37,7 @@ running.
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
