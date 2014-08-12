@@ -23,6 +23,18 @@ running.
 -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<distributionManagement>
+		<repository>
+			<id>unidata-releases</id>
+			<name>UNIDATA Releases</name>
+			<url>https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>unidata-snapshots</id>
+			<name>UNIDATA Snapshots</name>
+			<url>https://artifacts.unidata.ucar.edu/content/repositories/unidata-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<properties>
 	    <project.build.sourceEncoding>ISO8859-1</project.build.sourceEncoding>
 	</properties>
