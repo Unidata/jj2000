@@ -42,7 +42,7 @@ running.
 
 	<groupId>edu.ucar</groupId>
 	<artifactId>jj2000</artifactId>
-	<version>5.2-SNAPSHOT</version>
+	<version>5.2</version>
 	<packaging>jar</packaging>
 
 	<build>
