@@ -76,7 +76,7 @@ import java.io.*;
  * given through the constructor. The when the run() method is invoked and the
  * decoder executes. The exit code of the class can be obtained with the
  * getExitCode() method, after the constructor and after the run method. A
- * non-zero value indicates that an error has ocurred.</p>
+ * non-zero value indicates that an error has occurred.</p>
  *
  * <p>The decoding chain corresponds to the following sequence of modules:</p>
  *
@@ -323,7 +323,7 @@ public class Decoder implements Runnable {
 
     /**
      * Runs the decoder. After completion the exit code is set, a non-zero
-     * value indicates that an error ocurred.
+     * value indicates that an error occurred.
      *
      * @see #getExitCode
      * */
@@ -378,7 +378,7 @@ public class Decoder implements Runnable {
                 // Do we print info ?
                 verbose = pl.getBooleanParameter("verbose");
             } catch (StringFormatException e) {
-                error("An error occured while parsing the arguments:\n"+
+                error("An error occurred while parsing the arguments:\n"+
                       e.getMessage(),1);
                 if(pl.getParameter("debug").equals("on")) {
                     e.printStackTrace();
@@ -387,7 +387,7 @@ public class Decoder implements Runnable {
                 }
                 return;
             } catch (NumberFormatException e) {
-                error("An error occured while parsing the arguments:\n"+
+                error("An error occurred while parsing the arguments:\n"+
                       e.getMessage(),1);
                 if(pl.getParameter("debug").equals("on")) {
                     e.printStackTrace();
@@ -1071,7 +1071,7 @@ public class Decoder implements Runnable {
             if(e.getMessage()!=null) {
                 error(e.getMessage(),2);
             } else {
-                error("An error has occured during decoding.",2);
+                error("An error has occurred during decoding.",2);
             }
 
             if(pl.getParameter("debug").equals("on")) {

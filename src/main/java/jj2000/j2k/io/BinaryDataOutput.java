@@ -78,7 +78,7 @@ public interface BinaryDataOutput {
      *
      * @param v The value to write to the output
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      *     
      *
      *
@@ -98,7 +98,7 @@ public interface BinaryDataOutput {
      *
      * @param v The value to write to the output
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      *     
      *
      *
@@ -112,7 +112,7 @@ public interface BinaryDataOutput {
      *
      * @param v The value to write to the output
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      *     
      *
      *
@@ -126,7 +126,7 @@ public interface BinaryDataOutput {
      *
      * @param v The value to write to the output
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      *     
      *
      *
@@ -140,7 +140,7 @@ public interface BinaryDataOutput {
      *
      * @param v The value to write to the output
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      *     
      *
      *
@@ -154,7 +154,7 @@ public interface BinaryDataOutput {
      *
      * @param v The value to write to the output
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      *     
      *
      *
@@ -181,7 +181,7 @@ public interface BinaryDataOutput {
      * Any data that has been buffered must be written, and the stream should
      * be realigned at the byte level.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      *     
      *
      * */

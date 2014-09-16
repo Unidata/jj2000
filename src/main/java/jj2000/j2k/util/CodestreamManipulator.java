@@ -148,7 +148,7 @@ public class CodestreamManipulator{
      *
      * @return The number of bytes that the file has increased by
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public int doCodestreamManipulation() throws IOException{
         BEBufferedRandomAccessFile fi;
@@ -199,7 +199,7 @@ public class CodestreamManipulator{
      *
      * @param fi The file to parse the markers from
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     private void parseAndFind(BufferedRandomAccessFile fi) throws IOException{
         int length,pos,i,t,sop=0,eph=0;
@@ -303,7 +303,7 @@ public class CodestreamManipulator{
      *
      * @param fi The file to read the headers and data from
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     private void readAndBuffer(BufferedRandomAccessFile fi)throws IOException{
         int p,prem,length,t,markIndex;
@@ -371,7 +371,7 @@ public class CodestreamManipulator{
      * This method creates the tileparts from the buffered tile headers,
      * packet headers and packet data
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     private void createTileParts() throws IOException{
         int i,prem,t,length;
@@ -525,7 +525,7 @@ public class CodestreamManipulator{
      *
      * @param fi The file to write the new codestream to
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     private void writeNewCodestream(BufferedRandomAccessFile fi)
         throws IOException{

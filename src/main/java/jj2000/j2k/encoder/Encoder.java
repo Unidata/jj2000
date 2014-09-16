@@ -250,7 +250,7 @@ public class Encoder implements Runnable {
 
     /**
      * Runs the encoder. After completion the exit code is set, a non-zero
-     * value indicates that an error ocurred.
+     * value indicates that an error occurred.
      *
      * @see #getExitCode
      * */
@@ -309,7 +309,7 @@ public class Encoder implements Runnable {
                 // Do we print info ?
                 verbose = pl.getBooleanParameter("verbose");
             } catch (StringFormatException e) {
-                error("An error occured while parsing the arguments:\n"+
+                error("An error occurred while parsing the arguments:\n"+
                       e.getMessage(),1);
                 if(pl.getParameter("debug").equals("on")) {
                     e.printStackTrace();
@@ -318,7 +318,7 @@ public class Encoder implements Runnable {
                 }
                 return;
             } catch (NumberFormatException e) {
-                error("An error occured while parsing the arguments:\n"+
+                error("An error occurred while parsing the arguments:\n"+
                       e.getMessage(),1);
                 if(pl.getParameter("debug").equals("on")) {
                     e.printStackTrace();

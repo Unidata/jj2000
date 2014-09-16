@@ -114,7 +114,7 @@ public class CmdLnEncoder{
             pl.parseArgs(argv);
         }
         catch (StringFormatException e) {
-            System.err.println("An error occured while parsing the "+
+            System.err.println("An error occurred while parsing the "+
                                "arguments:\n"+e.getMessage());
             return;
         }
@@ -135,7 +135,7 @@ public class CmdLnEncoder{
                 return;
             }
             catch (IOException e) {
-                System.err.println("An error ocurred while reading from the "+
+                System.err.println("An error occurred while reading from the "+
                                    "argument file " + pl.getParameter("pfile"));
                 return;
             }
@@ -168,7 +168,7 @@ public class CmdLnEncoder{
 
 	// Instantiate encoder
         enc = new Encoder(pl);
-        if (enc.getExitCode() != 0) { // An error ocurred
+        if (enc.getExitCode() != 0) { // An error occurred
             System.exit(enc.getExitCode());
         }
         // Run the encoder

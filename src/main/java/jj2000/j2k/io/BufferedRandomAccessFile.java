@@ -129,7 +129,7 @@ public abstract class BufferedRandomAccessFile
      *
      * @param bufferSize The number of bytes to buffer
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     protected BufferedRandomAccessFile(File file, 
 				       String mode,
@@ -160,7 +160,7 @@ public abstract class BufferedRandomAccessFile
      *             it before. So the 2 modes are different only if the 
      *             file already exists).
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     protected BufferedRandomAccessFile(File file, 
 				       String mode ) throws IOException{
@@ -180,7 +180,7 @@ public abstract class BufferedRandomAccessFile
      *
      * @param bufferSize The number of bytes to buffer
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     protected BufferedRandomAccessFile(String name, 
 				       String mode,
@@ -199,7 +199,7 @@ public abstract class BufferedRandomAccessFile
      *             it before. So the 2 modes are different only if the 
      *             file already exists).
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     protected BufferedRandomAccessFile(String name, 
 				       String mode ) throws IOException{
@@ -214,7 +214,7 @@ public abstract class BufferedRandomAccessFile
      * 
      * @param off The offset where to move to.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     protected final void readNewBuffer(int off) throws IOException{
 
@@ -249,7 +249,7 @@ public abstract class BufferedRandomAccessFile
     /**
      * Closes the buffered random access file
      * 
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public void close() throws IOException{
 	/* If the buffer has been changed, it need to be saved before
@@ -273,7 +273,7 @@ public abstract class BufferedRandomAccessFile
      * 
      * @return The length of the stream, in bytes.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public int length() throws IOException{
 	int len;
@@ -299,7 +299,7 @@ public abstract class BufferedRandomAccessFile
      *
      * @exception EOFException If in read-only and seeking beyond EOF.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public void seek(int off) throws IOException{
 	/* If the new offset is within the buffer, only the pos value needs
@@ -322,7 +322,7 @@ public abstract class BufferedRandomAccessFile
      * 
      * @return The byte read.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      *
      * @exception java.io.EOFException If the end of file was reached
      * */
@@ -357,7 +357,7 @@ public abstract class BufferedRandomAccessFile
      * @exception EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public final void readFully(byte b[], int off, int len)
         throws IOException {
@@ -389,7 +389,7 @@ public abstract class BufferedRandomAccessFile
      * @param b The byte to write. The lower 8 bits of <tt>b</tt> are
      * written.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final void write(int b) throws IOException{
 	// As long as pos is less than the length of the buffer we can write
@@ -417,7 +417,7 @@ public abstract class BufferedRandomAccessFile
      * 
      * @param b The byte to write.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final void write(byte b) throws IOException{
 	// As long as pos is less than the length of the buffer we can write
@@ -449,7 +449,7 @@ public abstract class BufferedRandomAccessFile
      *
      * @param length The number of bytes from b to write 
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final void write(byte[] b, int offset, int length) 
         throws IOException{
@@ -475,7 +475,7 @@ public abstract class BufferedRandomAccessFile
      * 
      * @param v The value to write to the output
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final void writeByte(int v) throws IOException{
 	write(v);
@@ -486,7 +486,7 @@ public abstract class BufferedRandomAccessFile
      * buffering at the bit level), and the stream should be realigned
      * at the byte level.
      * 
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final void flush() throws IOException{
         if(byteBufferChanged){
@@ -506,7 +506,7 @@ public abstract class BufferedRandomAccessFile
      * @exception java.io.EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final byte readByte() throws EOFException, IOException {
 	if(pos<maxByte){ // The byte can be read from the buffer
@@ -535,7 +535,7 @@ public abstract class BufferedRandomAccessFile
      * @exception java.io.EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final int readUnsignedByte() throws EOFException, IOException{
         return read();
@@ -565,7 +565,7 @@ public abstract class BufferedRandomAccessFile
      * @exception java.io.EOFException If the end-of file was reached before
      * all the bytes could be skipped.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public int skipBytes(int n)throws EOFException, IOException{
 	if(n<0)
