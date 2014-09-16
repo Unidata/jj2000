@@ -249,7 +249,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If seeking beyond EOF and the data length is
      * known.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public void seek(int off) throws IOException {
         if (complete) { /* we know the length, check seek is within length */
@@ -267,7 +267,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      *
      * @return The length of the stream, in bytes.
      *
-     * @exception IOException If an I/O error ocurred.  
+     * @exception IOException If an I/O error occurred.  
      * */
     public int length() throws IOException {
         while (!complete) { /* read until we reach EOF */
@@ -283,7 +283,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      *
      * @exception EOFException If the end-of file was reached.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public int read() throws IOException {
         if (pos < len) { // common, fast case
@@ -317,7 +317,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before getting
      * all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public void readFully(byte b[], int off, int n) throws IOException {
         if (pos+n <= len) { // common, fast case
@@ -357,7 +357,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before getting
      * all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public byte readByte() throws IOException {
         if (pos < len) { // common, fast case
@@ -375,7 +375,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before getting
      * all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public int readUnsignedByte() throws IOException {
         if (pos < len) { // common, fast case
@@ -393,7 +393,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before getting
      * all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public short readShort() throws IOException {
         if (pos+1 < len) { // common, fast case
@@ -411,7 +411,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before getting
      * all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public int readUnsignedShort() throws IOException {
         if (pos+1 < len) { // common, fast case
@@ -430,7 +430,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before getting
      * all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public int readInt() throws IOException {
         if (pos+3 < len) { // common, fast case
@@ -449,7 +449,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before getting
      * all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public long readUnsignedInt() throws IOException {
         if (pos+3 < len) { // common, fast case
@@ -471,7 +471,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before getting
      * all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public long readLong() throws IOException {
         if (pos+7 < len) { // common, fast case
@@ -504,7 +504,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before getting
      * all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public float readFloat() throws IOException {
         if (pos+3 < len) { // common, fast case
@@ -527,7 +527,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before getting
      * all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public double readDouble() throws IOException {
         if (pos+7 < len) { // common, fast case
@@ -561,7 +561,7 @@ public class ISRandomAccessIO implements RandomAccessIO {
      * @exception EOFException If the end-of file was reached before all the
      * bytes could be skipped.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public int skipBytes(int n) throws IOException {
         if (complete) { /* we know the length, check skip is within length */

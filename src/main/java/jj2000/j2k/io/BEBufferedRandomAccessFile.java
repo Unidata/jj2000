@@ -69,7 +69,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      *
      * @param bufferSize The number of bytes to buffer
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public BEBufferedRandomAccessFile(File file, String mode,
 				      int bufferSize) throws IOException {
@@ -88,7 +88,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      *             before. So the 2 modes are different only if the file
      *             already exists).
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public BEBufferedRandomAccessFile(File file, String mode ) 
         throws IOException {
@@ -108,7 +108,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      *
      * @param bufferSize The number of bytes to buffer
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public BEBufferedRandomAccessFile(String name, String mode,
 				      int bufferSize) throws IOException {
@@ -127,7 +127,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      *             before. So the 2 modes are different only if the file
      *             already exists).
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public BEBufferedRandomAccessFile(String name, String mode) 
         throws IOException {
@@ -147,7 +147,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * 
      * @param v The value to write to the output
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final void writeShort(int v) throws IOException {
 	write(v>>>8);
@@ -161,7 +161,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * 
      * @param v The value to write to the output
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final void writeInt(int v)throws IOException {
  	write(v>>>24);
@@ -177,7 +177,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * 
      * @param v The value to write to the output
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final void writeLong(long v) throws IOException {
 	write((int)(v>>>56));
@@ -197,7 +197,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * 
      * @param v The value to write to the output
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final void writeFloat(float v) throws IOException {
 	int intV = Float.floatToIntBits(v);
@@ -215,7 +215,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * 
      * @param v The value to write to the output
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final void writeDouble(double v) throws IOException {
 	long longV = Double.doubleToLongBits(v);
@@ -239,7 +239,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * @exception java.io.EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final short readShort() throws IOException, EOFException {
 	return (short)( (read()<<8) | (read()) );
@@ -257,7 +257,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * @exception java.io.EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final int readUnsignedShort() throws IOException, EOFException {
 	return ( (read()<<8) | read() );
@@ -272,7 +272,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * @exception java.io.EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final int readInt() throws IOException, EOFException {
 	return ( (read()<<24) | (read()<<16) | (read()<<8) | read() );
@@ -289,7 +289,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * @exception java.io.EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final long readUnsignedInt() throws IOException, EOFException {
 	return (long)( (read()<<24) | (read()<<16) | (read()<<8) | read() );
@@ -304,7 +304,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * @exception java.io.EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final long readLong() throws IOException, EOFException {
 	return ( ((long)read()<<56) | ((long)read()<<48) | ((long)read()<<40)|
@@ -322,7 +322,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * @exception java.io.EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final float readFloat() throws EOFException, IOException {
 	return Float.intBitsToFloat( (read()<<24) | (read()<<16)|
@@ -339,7 +339,7 @@ public class BEBufferedRandomAccessFile extends BufferedRandomAccessFile
      * @exception java.io.EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public final double readDouble() throws IOException, EOFException {
 	return Double.longBitsToDouble( ((long)read()<<56)|

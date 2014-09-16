@@ -879,7 +879,7 @@ public class StdEntropyDecoder extends EntropyDecoder
             }
         }
 
-        // If an error ocurred conceal it
+        // If an error occurred conceal it
         if (error && doer) {
             if (verber) {
                 FacilityManager.getMsgLogger().

@@ -280,7 +280,7 @@ public abstract class PostCompRateAllocator extends ImgDataAdapter {
         try {
             stok.nextToken();
         } catch (IOException e) {
-            throw new Error("An IOException has ocurred where it "+
+            throw new Error("An IOException has occurred where it "+
                             "should never occur");
         }
         ratepending = false;
@@ -329,7 +329,7 @@ public abstract class PostCompRateAllocator extends ImgDataAdapter {
                 try {
                     stok.nextToken();
                 } catch(IOException e) {
-                    throw new Error("An IOException has ocurred where it "+
+                    throw new Error("An IOException has occurred where it "+
                                     "should never occur");
                 }
                 if (stok.ttype != stok.TT_EOF) {
@@ -346,7 +346,7 @@ public abstract class PostCompRateAllocator extends ImgDataAdapter {
             try {
                 stok.nextToken();
             } catch (IOException e) {
-                throw new Error("An IOException has ocurred where it "+
+                throw new Error("An IOException has occurred where it "+
                                 "should never occur");
             }
         }

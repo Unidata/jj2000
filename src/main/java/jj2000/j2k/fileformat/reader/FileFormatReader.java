@@ -88,7 +88,7 @@ public class FileFormatReader implements FileFormatBoxes {
      *
      * @param in The RandomAccessIO from which to read the file format
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      *
      * @exception java.io.EOFException If end of file is reached
      * */
@@ -205,7 +205,7 @@ public class FileFormatReader implements FileFormatBoxes {
      *
      * @return false if the File Type box was not found or invalid else true
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * @exception java.io.EOFException If the end of file was reached
      * */
     public boolean readFileTypeBox()throws IOException, EOFException {
@@ -267,7 +267,7 @@ public class FileFormatReader implements FileFormatBoxes {
      *
      * @return false if the JP2Header box was not found or invalid else true
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      *
      * @exception java.io.EOFException If the end of file was reached
      * */
@@ -296,7 +296,7 @@ public class FileFormatReader implements FileFormatBoxes {
      * @return false if the Contiguous codestream box was not found or invalid
      * else true
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      *
      * @exception java.io.EOFException If the end of file was reached
      * */

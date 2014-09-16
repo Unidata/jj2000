@@ -61,7 +61,7 @@ public interface RandomAccessIO
      * Closes the I/O stream. Prior to closing the stream, any buffered data
      * (at the bit and byte level) should be written.
      *
-     * @exception IOException If an I/O error ocurred. 
+     * @exception IOException If an I/O error occurred. 
      * */
     public void close() throws IOException;
 
@@ -72,7 +72,7 @@ public interface RandomAccessIO
      *
      * @return The offset of the current position, in bytes.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public int getPos() throws IOException;
 
@@ -82,7 +82,7 @@ public interface RandomAccessIO
      *
      * @return The length of the stream, in bytes.
      *
-     * @exception IOException If an I/O error ocurred. 
+     * @exception IOException If an I/O error occurred. 
      * */
     public int length() throws IOException;
 
@@ -98,7 +98,7 @@ public interface RandomAccessIO
      *
      * @exception EOFException If in read-only and seeking beyond EOF.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public void seek(int off) throws IOException;
 
@@ -110,7 +110,7 @@ public interface RandomAccessIO
      *
      * @exception EOFException If the end-of file was reached.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public int read() throws EOFException, IOException;
 
@@ -130,7 +130,7 @@ public interface RandomAccessIO
      * @exception EOFException If the end-of file was reached before
      * getting all the necessary data.
      *
-     * @exception IOException If an I/O error ocurred.
+     * @exception IOException If an I/O error occurred.
      * */
     public void readFully(byte b[], int off, int len) throws IOException;
 
@@ -141,7 +141,7 @@ public interface RandomAccessIO
      * @param b The byte to write. The lower 8 bits of <tt>b</tt> are
      * written.
      *
-     * @exception IOException If an I/O error ocurred. 
+     * @exception IOException If an I/O error occurred. 
      * */
     public void write(int b) throws IOException;
 }

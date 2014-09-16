@@ -138,7 +138,7 @@ public class FileFormatWriter implements FileFormatBoxes{
      *
      * @return The number of bytes increases because of the file format
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public int writeFileFormat() throws IOException {
         byte[] codestream;
@@ -180,7 +180,7 @@ public class FileFormatWriter implements FileFormatBoxes{
     /** 
      * This method writes the File Type box
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public void writeFileTypeBox()throws IOException {
         // Write box length (LBox)
@@ -205,7 +205,7 @@ public class FileFormatWriter implements FileFormatBoxes{
     /** 
      * This method writes the JP2Header box
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public void writeJP2HeaderBox()throws IOException {
 
@@ -233,7 +233,7 @@ public class FileFormatWriter implements FileFormatBoxes{
     /** 
      * This method writes the Bits Per Component box
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      *
      */
     public void writeBitsPerComponentBox()throws IOException {
@@ -253,7 +253,7 @@ public class FileFormatWriter implements FileFormatBoxes{
     /** 
      * This method writes the Colour Specification box
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      *
      */
     public void writeColourSpecificationBox()throws IOException {
@@ -283,7 +283,7 @@ public class FileFormatWriter implements FileFormatBoxes{
     /** 
      * This method writes the Image Header box
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public void writeImageHeaderBox()throws IOException {
 
@@ -326,7 +326,7 @@ public class FileFormatWriter implements FileFormatBoxes{
      *
      * @param cs The contiguous codestream
      *
-     * @exception java.io.IOException If an I/O error ocurred.
+     * @exception java.io.IOException If an I/O error occurred.
      * */
     public void writeContiguousCodeStreamBox(byte[] cs)throws IOException {
 
