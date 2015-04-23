@@ -44,6 +44,36 @@ running.
 	<artifactId>jj2000</artifactId>
 	<version>5.3-SNAPSHOT</version>
 	<packaging>jar</packaging>
+	<name>Unidata jj2000</name>
+	<description>Fork of jpeg2k code from https://code.google.com/p/jj2000/. 
+		This is a dependency for support of compression in Grib2 files in netCDF-java and TDS.
+		We welcome bug fixes and other contributions to this code.</description>
+	<url>https://github.com/Unidata/jj2000</url>
+	<scm>
+		<connection>scm:git:http://github.com/Unidata/jj2000.git</connection>
+		<developerConnection>scm:git:http://github.com/Unidata/jj2000.git</developerConnection>
+		<url>https://github.com/Unidata/jj2000.git</url>
+		<tag>HEAD</tag>
+	</scm>
+	
+	<licenses>
+		<license>
+			<name>jj2000 License</name>
+			<url>https://github.com/Unidata/jj2000/blob/master/COPYRIGHT</url>
+		</license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<id></id>
+			<name></name>
+			<email></email>
+			<roles>
+				<role></role>
+				<role></role>
+			</roles>
+		</developer>
+	</developers>
 
 	<build>
 		<extensions>
@@ -63,6 +93,62 @@ running.
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<quiet>true</quiet>
+							<archive>
+								<manifest>
+									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+									<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+								</manifest>
+								<manifestEntries>
+									<Implementation-Build>${implementation.build}</Implementation-Build>
+									<Implementation-Build-Date>${maven.build.timestamp}</Implementation-Build-Date>
+									<X-Compile-Source-JDK>1.7</X-Compile-Source-JDK>
+									<X-Compile-Target-JDK>1.7</X-Compile-Target-JDK>
+								</manifestEntries>
+							</archive>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+						<configuration>
+							<archive>
+								<manifest>
+									<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+									<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+								</manifest>
+								<manifestEntries>
+									<Implementation-Build>${implementation.build}</Implementation-Build>
+									<Implementation-Build-Date>${maven.build.timestamp}</Implementation-Build-Date>
+									<X-Compile-Source-JDK>1.7</X-Compile-Source-JDK>
+									<X-Compile-Target-JDK>1.7</X-Compile-Target-JDK>
+								</manifestEntries>
+							</archive>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
+		
 	</build>
 </project>
