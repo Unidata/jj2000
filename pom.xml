@@ -65,12 +65,14 @@ running.
 	
 	<developers>
 		<developer>
-			<id></id>
-			<name></name>
-			<email></email>
+			<id>unidata</id>
+			<name>Unidata</name>
+			<organization>Unidata</organization>
+			<organizationURL>http://www.unidata.ucar.edu</organizationURL>
+			<email>support-netcdf-java@unidata.ucar.edu</email>
 			<roles>
-				<role></role>
-				<role></role>
+				<role>maintainer</role>
+				<role>publisher</role>
 			</roles>
 		</developer>
 	</developers>
