@@ -122,6 +122,8 @@ running.
 									<X-Compile-Target-JDK>1.7</X-Compile-Target-JDK>
 								</manifestEntries>
 							</archive>
+							<!-- See http://blog.joda.org/2014/02/turning-off-doclint-in-jdk-8-javadoc.html -->
+							<additionalparam>-Xdoclint:none</additionalparam>
 						</configuration>
 					</execution>
 				</executions>
