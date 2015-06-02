@@ -1,11 +1,11 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: JJ2KExceptionHandler.java,v 1.6 2000/09/05 09:22:08 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   JJ2KExceptionHandler
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:             A class to handle exceptions
  *
  *
  *
@@ -39,30 +39,53 @@
  * derivative works of this software module.
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
- * */
+ * 
+ * 
+ * 
+ */
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+
+package ucar.jpeg.jj2000.j2k;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
- * */
-public class JJ2KEncoder {
+ * This class handles exceptions. It should be used in places where it
+ * is not known how to handle the exception, and the exception can not
+ * be thrown higher in the stack.
+ *
+ * <P>Different options can be registered for each Thread and
+ * ThreadGroup. <i>This feature is not implemented yet</i>
+ *
+ */
+public class JJ2KExceptionHandler {
 
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+     * Handles the exception. If no special action is registered for
+     * the current thread, then the Exception's stack trace and a
+     * descriptive message are printed to standard error and the
+     * current thread is stopped.
      *
-     * @param argv The command line arguments.
+     * <P><i>Registration of special actions is not implemented yet.</i>
+     *
+     * @param e The exception to handle
+     *
+     *
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
-
-        CmdLnEncoder.main(argv);
+    public static void handleException(Throwable e) {
+        // Test if there is an special action (not implemented yet)
+        
+        // If no special action
+        
+        // Print the Exception message and stack to standard error
+        // including this method in the stack.
+        e.fillInStackTrace();
+        e.printStackTrace();
+        // Print an explicative message
+        System.err.println("The Thread is being terminated bacause an " +
+                           "Exception (shown above)\n" +
+                           "has been thrown and no special action was " +
+                           "defined for this Thread.");
+        // Stop the thread (do not use stop, since it's deprecated in
+        // Java 1.2)
+        throw new ThreadDeath();
     }
 }

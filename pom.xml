@@ -62,13 +62,16 @@ running.
 			<url>https://github.com/Unidata/jj2000/blob/master/COPYRIGHT</url>
 		</license>
 	</licenses>
+
+	<organization>
+		<name>UCAR/Unidata</name>
+		<url>http://www.unidata.ucar.edu/</url>
+	</organization>
 	
 	<developers>
 		<developer>
 			<id>unidata</id>
 			<name>Unidata</name>
-			<organization>Unidata</organization>
-			<organizationURL>http://www.unidata.ucar.edu</organizationURL>
 			<email>support-netcdf-java@unidata.ucar.edu</email>
 			<roles>
 				<role>maintainer</role>
@@ -113,7 +116,7 @@ running.
 									<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
 								</manifest>
 								<manifestEntries>
-									<Implementation-Build>${implementation.build}</Implementation-Build>
+									<!--<Implementation-Build>${implementation.build}</Implementation-Build>-->
 									<Implementation-Build-Date>${maven.build.timestamp}</Implementation-Build-Date>
 									<X-Compile-Source-JDK>1.7</X-Compile-Source-JDK>
 									<X-Compile-Target-JDK>1.7</X-Compile-Target-JDK>
@@ -140,7 +143,7 @@ running.
 									<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
 								</manifest>
 								<manifestEntries>
-									<Implementation-Build>${implementation.build}</Implementation-Build>
+									<!--<Implementation-Build>${implementation.build}</Implementation-Build>-->
 									<Implementation-Build-Date>${maven.build.timestamp}</Implementation-Build-Date>
 									<X-Compile-Source-JDK>1.7</X-Compile-Source-JDK>
 									<X-Compile-Target-JDK>1.7</X-Compile-Target-JDK>

@@ -1,14 +1,14 @@
-/*
+/* 
  * CVS identifier:
- *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
- *
- * Class:                   JJ2KEncoder
- *
- * Description:             Wrapper for the CmdLnEncoder class.
- *
- *
- *
+ * 
+ * $Id: CompTransfSpec.java,v 1.18 2001/04/10 14:23:26 grosbois Exp $
+ * 
+ * Class:                   CompTransfSpec
+ * 
+ * Description:             Component Transformation specification
+ * 
+ * 
+ * 
  * COPYRIGHT:
  * 
  * This software module was originally developed by Raphaël Grosbois and
@@ -39,30 +39,58 @@
  * derivative works of this software module.
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
- * */
+ *  */
+package ucar.jpeg.jj2000.j2k.image;
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+import ucar.jpeg.jj2000.j2k.image.invcomptransf.*;
+import ucar.jpeg.jj2000.j2k.*;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This class extends the ModuleSpec class in order to hold tile
+ * specifications for multiple component transformation
+ *
+ * @see ModuleSpec
  * */
-public class JJ2KEncoder {
-
-    /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+public class CompTransfSpec extends ModuleSpec {
+    
+    /** 
+     * Constructs an empty 'CompTransfSpec' with the specified number of tiles
+     * and components. This constructor is called by the decoder. Note: The
+     * number of component is here for symmetry purpose. It is useless since
+     * only tile specifications are meaningful.
      *
-     * @param argv The command line arguments.
+     * @param nt Number of tiles
+     *
+     * @param nc Number of components
+     *
+     * @param type the type of the specification module i.e. tile specific,
+     * component specific or both.
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    public CompTransfSpec(int nt, int nc, byte type){
+	super(nt, nc, type);
+    }
 
-        CmdLnEncoder.main(argv);
+
+    /** 
+     * Check if component transformation is used in any of the tiles. This
+     * method must not be used by the encoder.
+     *
+     * @return True if a component transformation is used in at least on
+     * tile.
+     * */
+    public boolean isCompTransfUsed(){
+        if( ((Integer)def).intValue() != InvCompTransf.NONE ){
+            return true;
+        }
+     
+        if(tileDef!=null){
+            for(int t=nTiles-1; t>=0; t--){
+                if(tileDef[t]!=null && 
+                   ( ((Integer)tileDef[t]).intValue() != InvCompTransf.NONE) ){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

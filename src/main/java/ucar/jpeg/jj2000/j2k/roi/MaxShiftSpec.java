@@ -1,14 +1,14 @@
-/*
+/* 
  * CVS identifier:
+ * 
+ * $Id: MaxShiftSpec.java,v 1.10 2000/11/27 15:00:45 grosbois Exp $
+ * 
+ * Class:                   MaxShiftSpec
+ * 
+ * Description:             Generic class for storing module specs
+ * 
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
- *
- * Class:                   JJ2KEncoder
- *
- * Description:             Wrapper for the CmdLnEncoder class.
- *
- *
- *
+ * 
  * COPYRIGHT:
  * 
  * This software module was originally developed by Raphaël Grosbois and
@@ -39,30 +39,31 @@
  * derivative works of this software module.
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
- * */
+ */
+package ucar.jpeg.jj2000.j2k.roi;
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+import ucar.jpeg.jj2000.j2k.*;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This class contains the maxshift scaling value for each tile-component.
+ * The scaling values used are calculated in the ROIScaler class
  * */
-public class JJ2KEncoder {
+
+public class MaxShiftSpec extends ModuleSpec{
 
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+     * Constructs a 'ModuleSpec' object, initializing all the components and 
+     * tiles to the 'SPEC_DEF' spec type, for the specified number of 
+     * components and tiles.
      *
-     * @param argv The command line arguments.
+     * @param nt The number of tiles
+     *
+     * @param nc The number of components
+     *
+     * @param type the type of the specification module i.e. tile specific,
+     * component specific or both.
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
-
-        CmdLnEncoder.main(argv);
+    public MaxShiftSpec(int nt, int nc, byte type) {
+      super(nt, nc, type);
     }
 }

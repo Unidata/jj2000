@@ -1,11 +1,12 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: DequantizerParams.java,v 1.16 2000/09/19 14:11:54 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   DequantizerParams
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:             Generic class to hold dequantizer
+ *                          parameters.
  *
  *
  *
@@ -39,30 +40,29 @@
  * derivative works of this software module.
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
- * */
+ */
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+
+package ucar.jpeg.jj2000.j2k.quantization.dequantizer;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This is the generic ineterface for dequantization parameters. Generally,
+ * for each type of dequantizer, there should be a corresponding class to
+ * store its parameters. The parameters are those that come from the bit
+ * stream header, that concern dequantization.
  * */
-public class JJ2KEncoder {
+public abstract class DequantizerParams {
 
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+     * Returns the type of the dequantizer for which the parameters are. The
+     * types are defined in the Dequantizer class.
      *
-     * @param argv The command line arguments.
+     * @return The type of the dequantizer for which the parameters
+     * are.
+     *
+     * @see Dequantizer
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    public abstract int getDequantizerType();
 
-        CmdLnEncoder.main(argv);
-    }
 }
+

@@ -1,13 +1,11 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: PrecCoordInfo.java,v 1.9 2001/09/14 09:33:22 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   PrecCoordInfo
  *
- * Description:             Wrapper for the CmdLnEncoder class.
- *
- *
+ * Description:             Used to store the coordinates precincts.
  *
  * COPYRIGHT:
  * 
@@ -40,29 +38,53 @@
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
-
-import ucar.jpeg.jj2000.j2k.encoder.*;
+package ucar.jpeg.jj2000.j2k.codestream;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This class is used to store the coordinates of precincts.
  * */
-public class JJ2KEncoder {
+public class PrecCoordInfo extends CoordInfo {
 
-    /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+    /** Horizontal upper left coordinate in the reference grid */
+    public int xref;
+    
+    /** Vertical upper left coordinate on the reference grid */
+    public int yref;
+    
+    /** 
+     * Constructor. Creates a PrecCoordInfo object.
      *
-     * @param argv The command line arguments.
+     * @param ulx Horizontal upper left coordinate in the subband
+     *
+     * @param uly Vertical upper left coordinate in the subband
+     *
+     * @param w Precinct's width
+     *
+     * @param h Precinct's height
+     *
+     * @param xref The horizontal coordinate on the reference grid 
+     *
+     * @param yref The vertical coordinate on the reference grid 
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
-
-        CmdLnEncoder.main(argv);
+    public PrecCoordInfo(int ulx,int uly,int w,int h,int xref,int yref) {
+        super(ulx,uly,w,h);
+        this.xref = xref;
+        this.yref = yref;
+    }
+    
+    /** 
+     * Empty Constructor. Creates an empty PrecCoordInfo object.
+     * */
+    public PrecCoordInfo() {
+        super();
+    }
+    
+    /** 
+     * Returns precinct's information in a String 
+     * 
+     * @return String with precinct's information
+     * */
+    public String toString() {
+        return super.toString() + ", xref="+xref+", yref="+yref;
     }
 }

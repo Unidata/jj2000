@@ -1,11 +1,11 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: FilterTypes.java,v 1.12 2001/05/08 16:14:28 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   FilterTypes
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:             Defines the interface for Filter types
  *
  *
  *
@@ -40,29 +40,23 @@
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
-
-import ucar.jpeg.jj2000.j2k.encoder.*;
+package ucar.jpeg.jj2000.j2k.wavelet;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This interface defines the identifiers for the different types of filters
+ * that are supported.
+ *
+ * <p>The identifier values are the same as those used in the codestream
+ * syntax, for the filters that are defined in the standard.</p>
  * */
-public class JJ2KEncoder {
+public interface FilterTypes {
 
-    /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
-     *
-     * @param argv The command line arguments.
-     * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    /** W7x9 filter: 0x00 */
+    public final static int W9X7 = 0;
 
-        CmdLnEncoder.main(argv);
-    }
+    /** W5x3 filter: 0x01 */
+    public final static int W5X3 = 1;
+
+    /** User-defined filter: -1 */
+    public final static int CUSTOM = -1;
 }

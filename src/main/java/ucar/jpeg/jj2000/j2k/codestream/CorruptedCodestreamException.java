@@ -1,11 +1,13 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: CorruptedCodestreamException.java,v 1.6 2000/09/05 09:22:33 grosbois
+ * Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   CorruptedCodestreamException
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:             Exception thrown when illegal bit stream
+ *                          values are decoded.
  *
  *
  *
@@ -40,29 +42,32 @@
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
+package ucar.jpeg.jj2000.j2k.codestream;
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+import java.io.*;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This exception is thrown whenever an illegal value is read from a bit
+ * stream. The cause can be either a corrupted bit stream, or a a bit stream
+ * which is illegal.
  * */
-public class JJ2KEncoder {
+public class CorruptedCodestreamException extends IOException {
 
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
-     *
-     * @param argv The command line arguments.
+     * Constructs a new <tt>CorruptedCodestreamException</tt> exception with
+     * no detail message.
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    public CorruptedCodestreamException() {
+        super();
+    }
 
-        CmdLnEncoder.main(argv);
+    /**
+     * Constructs a new <tt>CorruptedCodestreamException</tt> exception with
+     * the specified detail message.
+     *
+     * @param s The detail message.
+     * */
+    public CorruptedCodestreamException(String s) {
+        super(s);
     }
 }

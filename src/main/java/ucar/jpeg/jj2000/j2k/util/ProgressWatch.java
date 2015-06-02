@@ -1,13 +1,11 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: ProgressWatch.java,v 1.1 2002/05/22 16:19:28 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   ProgressWatch
  *
- * Description:             Wrapper for the CmdLnEncoder class.
- *
- *
+ * Description: Interface defining methods for ProgressWatch objects.
  *
  * COPYRIGHT:
  * 
@@ -40,29 +38,21 @@
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
+package ucar.jpeg.jj2000.j2k.util;
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
-
-/**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
- * */
-public class JJ2KEncoder {
-
-    /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
-     *
-     * @param argv The command line arguments.
+public interface ProgressWatch {
+   /** 
+     * Initialize the progress watching process 
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    public void initProgressWatch(int min, int max,String info);
 
-        CmdLnEncoder.main(argv);
-    }
+    /** 
+     * Update the progress watching process to the specified value
+     * */
+    public void updateProgressWatch(int val,String info);
+
+    /** 
+     * Terminate the progress watch process
+     * */
+    public void terminateProgressWatch();
 }

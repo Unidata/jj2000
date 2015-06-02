@@ -1,11 +1,12 @@
 /*
- * CVS identifier:
+ * CVS Identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: NotImplementedError.java,v 1.10 2000/09/05 09:22:13 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:               NotImplementedError
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:         Exception that is thrown whenever a non-implemented
+ *                      method is called.
  *
  *
  *
@@ -39,30 +40,51 @@
  * derivative works of this software module.
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
- * */
+ * 
+ * 
+ * 
+ */
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+package ucar.jpeg.jj2000.j2k;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
- * */
-public class JJ2KEncoder {
+ * This exception is thrown whenever a feature or functionality that
+ * has not been implemented is calle.
+ *
+ * <P>Its purpose it is to ease the development and testing process. A
+ * class that partially implements its functionality should throw a
+ * <tt>NotImplementedError</tt> when a method that has not yet
+ * been implemented is called.
+ *
+ * <P>This class is made a subclass of <tt>Error</tt> since it should
+ * never be caught by an application. There is no need to declare this
+ * exception in the <tt>throws</tt> clause of a method.
+ *
+ * @see Error
+ */
+public class NotImplementedError extends Error {
 
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+     * Constructs a new <tt>NotImplementedError</tt> exception with
+     * the default detail message. The message is:
      *
-     * @param argv The command line arguments.
-     * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+     * <P><I>The called method has not been implemented yet. Sorry!</I>
+     *
+     *
+     */
+    public NotImplementedError() {
+        super("The called method has not been implemented yet. Sorry!");
+    }
 
-        CmdLnEncoder.main(argv);
+    /**
+     * Constructs a new <tt>NotImplementedError</tt> exception with
+     * the specified detail message <tt>m</tt>.
+     *
+     * @param m The detail message to use
+     *
+     *
+     */
+    public NotImplementedError(String m) {
+        super(m);
     }
 }

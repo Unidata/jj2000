@@ -1,14 +1,16 @@
-/*
+/* 
  * CVS identifier:
- *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
- *
- * Class:                   JJ2KEncoder
- *
- * Description:             Wrapper for the CmdLnEncoder class.
- *
- *
- *
+ * 
+ * $Id: EBCOTLayer.java,v 1.9 2001/05/16 09:40:58 grosbois Exp $
+ * 
+ * Class:                   EBCOTLayer
+ * 
+ * Description:             Storage for layer information,
+ *                          used by EBCOTRateAllocator
+ * 
+ *                          class that was in EBCOTRateAllocator.
+ * 
+ * 
  * COPYRIGHT:
  * 
  * This software module was originally developed by Raphaël Grosbois and
@@ -40,29 +42,42 @@
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
-
-import ucar.jpeg.jj2000.j2k.encoder.*;
+package ucar.jpeg.jj2000.j2k.entropy.encoder;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This class holds information about each layer that is to be, or has already
+ * been, allocated . It is used in the rate-allocation process to keep the
+ * necessary layer information. It is used by EBCOTRateAllocator.
+ *
+ * @see EBCOTRateAllocator
  * */
-public class JJ2KEncoder {
-
+class EBCOTLayer {
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
-     *
-     * @param argv The command line arguments.
+     * This is the maximum number of bytes that should be allocated for this
+     * and previous layers. This is actually the target length for the layer.
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
-
-        CmdLnEncoder.main(argv);
-    }
+    int maxBytes;
+    
+    /**
+     * The actual number of bytes which are consumed by the the current and
+     * any previous layers. This is the result from a simulation when the
+     * threshold for the layer has been set.
+     * */
+    int actualBytes;
+    
+    /**
+     * If true the `maxBytes' value is the hard maximum and the threshold is
+     * determined iteratively. If false the `maxBytes' value is a target
+     * bitrate and the threshold is estimated from summary information
+     * accumulated during block coding.
+     * */
+    boolean optimize;
+    
+    /** 
+     * The rate-distortion threshold associated with the bit-stream
+     * layer. When set the layer includes data up to the truncation points
+     * that have a slope no smaller than 'rdThreshold'.
+     * */        
+    float rdThreshold;
 }
+

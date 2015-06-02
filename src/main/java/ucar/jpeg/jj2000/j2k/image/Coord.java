@@ -1,11 +1,11 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: Coord.java,v 1.14 2002/04/30 13:18:24 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   Coord
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:             Class for storage of 2-D coordinates
  *
  *
  *
@@ -40,29 +40,52 @@
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
-
-import ucar.jpeg.jj2000.j2k.encoder.*;
+package ucar.jpeg.jj2000.j2k.image;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This class represents 2-D coordinates.
  * */
-public class JJ2KEncoder {
+public class Coord {
+    /** The horizontal coordinate */
+    public int x;
+
+    /** The vertical coordinate */
+    public int y;
 
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
-     *
-     * @param argv The command line arguments.
+     * Creates a new coordinate object given with the (0,0) coordinates
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    public Coord() { }
 
-        CmdLnEncoder.main(argv);
+    /**
+     * Creates a new coordinate object given the two coordinates.
+     *
+     * @param x The horizontal coordinate.
+     *
+     * @param y The vertical coordinate.
+     * */
+    public Coord(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    
+    /**
+     * Creates a new coordinate object given another Coord object i.e. copy 
+     * constructor
+     *
+     * @param c The Coord object to be copied.
+     * */
+    public Coord(Coord c) {
+        this.x = c.x;
+        this.y = c.y;
+    }
+
+    /**
+     * Returns a string representation of the object coordinates
+     *
+     * @return The vertical and the horizontal coordinates
+     * */
+    public String toString(){
+	return "("+x+","+y+")";
     }
 }

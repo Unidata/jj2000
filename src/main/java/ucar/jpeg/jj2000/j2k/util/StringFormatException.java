@@ -1,11 +1,12 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: StringFormatException.java,v 1.9 2000/09/05 09:25:31 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   ArgumentFormatException
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:             Exception for badly formatted string
+ *                          argument exceptions.
  *
  *
  *
@@ -39,30 +40,38 @@
  * derivative works of this software module.
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
- * */
+ * 
+ * 
+ * 
+ */
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+
+package ucar.jpeg.jj2000.j2k.util;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * Thrown to indicate that the application has attempted to parse a
+ * badly formatted string.
  * */
-public class JJ2KEncoder {
+public class StringFormatException extends IllegalArgumentException {
 
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+     * Creates the exception with an empty messgage.
      *
-     * @param argv The command line arguments.
+     *
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    public StringFormatException() {
+        super();
+    }
 
-        CmdLnEncoder.main(argv);
+    /**
+     * Creates the exception with the specified detail message.
+     *
+     * @param s The detail message
+     *
+     *
+     * */
+    public StringFormatException(String s) {
+        super(s);
     }
 }
+

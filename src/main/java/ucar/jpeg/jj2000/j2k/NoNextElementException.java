@@ -1,11 +1,12 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: NoNextElementException.java,v 1.9 2000/09/05 09:22:12 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   NoNextElementException
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:             Exception to indicate that there is no next
+ *                          element.
  *
  *
  *
@@ -39,30 +40,42 @@
  * derivative works of this software module.
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
- * */
+ * 
+ * 
+ * 
+ */
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+
+package ucar.jpeg.jj2000.j2k;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
- * */
-public class JJ2KEncoder {
+ * This exception is thrown whenever a next???? method is called and
+ * there is no next element to return.
+ *
+ */
+public class NoNextElementException extends RuntimeException {
 
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+     * Constructs a new <tt>NoNextElementException</tt> exception with no
+     * detail message.
      *
-     * @param argv The command line arguments.
-     * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
-
-        CmdLnEncoder.main(argv);
+     *
+     */
+    public NoNextElementException() {
+        super();
     }
+
+    /**
+     * Constructs a new <tt>NoNextElementException</tt> exception with
+     * the specified detail message.
+     *
+     * @param s The detail message.
+     *
+     * */
+    public NoNextElementException(String s) {
+        super(s);
+    }
+
 }
+
+

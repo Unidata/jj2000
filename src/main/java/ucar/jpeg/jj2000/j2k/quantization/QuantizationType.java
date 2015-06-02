@@ -1,11 +1,12 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: QuantizationType.java,v 1.10 2000/09/19 14:11:30 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   QuantizationType
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:             This interface defines the possible
+ *                          quantization types.
  *
  *
  *
@@ -39,30 +40,29 @@
  * derivative works of this software module.
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
- * */
+ * 
+ * 
+ * 
+ */
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+
+package ucar.jpeg.jj2000.j2k.quantization;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This interface defines the IDs of the possible quantization types. JPEG
+ * 2000 part I support only the scalar quantization with dead zone. However
+ * other quantization type may be defined in JPEG 2000 extensions (for
+ * instance Trellis Coded Quantization).
+ *
+ * <P>This interface defines the constants only. In order to use the
+ * constants in any other class you can either use the fully qualified
+ * name (e.g., <tt>QuantizationType.Q_TYPE_SCALAR_DZ</tt>) or declare
+ * this interface in the implements clause of the class and then
+ * access the identifier directly.
  * */
-public class JJ2KEncoder {
+public interface QuantizationType {
 
-    /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
-     *
-     * @param argv The command line arguments.
-     * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    /** The ID of the scalar deadzone dequantizer */
+    public final static int Q_TYPE_SCALAR_DZ = 0;
 
-        CmdLnEncoder.main(argv);
-    }
 }

@@ -1,11 +1,11 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: CoordInfo.java,v 1.10 2001/09/14 09:32:11 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   CoordInfo
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description: Used to store the coordinates of code-blocks/packets
  *
  *
  *
@@ -40,29 +40,60 @@
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
-
-import ucar.jpeg.jj2000.j2k.encoder.*;
+package ucar.jpeg.jj2000.j2k.codestream;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This class is used to store the coordinates of objects such as code-blocks
+ * or precincts. As this is an abstract class, it cannot be used directly but
+ * derived classes have been created for code-blocks and packets
+ * (CBlkCoordInfo and PrecCoordInfo).
+ *
+ * @see PrecCoordInfo
+ * @see CBlkCoordInfo
  * */
-public class JJ2KEncoder {
+public abstract class CoordInfo {
 
-    /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+    /** Horizontal upper left coordinate in the subband */
+    public int ulx;
+
+    /** Vertical upper left coordinate in the subband */ 
+    public int uly;
+
+    /** Object's width */
+    public int w;
+
+    /** Object's height */
+    public int h;
+    
+    /** 
+     * Constructor. Creates a CoordInfo object.
      *
-     * @param argv The command line arguments.
+     * @param ulx The horizontal upper left coordinate in the subband
+     *
+     * @param uly The vertical upper left coordinate in the subband
+     *
+     * @param w The width
+     *
+     * @param h The height
+     *
+     * @param idx The object's index
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    public CoordInfo(int ulx, int uly, int w, int h) {
+        this.ulx = ulx;
+        this.uly = uly;
+        this.w = w;
+        this.h = h;
+    }
+    
+    /** Empty contructor */
+    public CoordInfo() { }
 
-        CmdLnEncoder.main(argv);
+    /** 
+     * Returns object's information in a String 
+     * 
+     * @return String with object's information
+     * */
+    public String toString() {
+        return "ulx="+ulx+",uly="+uly+",w="+w+",h="+h;
     }
 }

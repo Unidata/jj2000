@@ -1,11 +1,12 @@
 /*
- * CVS identifier:
+ * CVS Identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: EndianType.java,v 1.10 2000/09/05 09:24:36 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Interface:           EndianType
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:         Defines the two types of endianess (i.e. byte
+ *                      ordering).
  *
  *
  *
@@ -39,30 +40,35 @@
  * derivative works of this software module.
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
- * */
+ * 
+ * 
+ * 
+ */
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+package ucar.jpeg.jj2000.j2k.io;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
- * */
-public class JJ2KEncoder {
+ * This interface defines constants for the two types of byte
+ * ordering: little- and big-endian.
+ *
+ * <P>Little-endian is least significant byte first.
+ *
+ * <P>Big-endian is most significant byte first.
+ *
+ * <P>This interface defines the constants only. In order to use the
+ * constants in any other class you can either use the fully qualified 
+ * name (e.g., <tt>EndianType.LITTLE_ENDIAN</tt>) or declare this
+ * interface in the implements clause of the class and then access the 
+ * identifier directly.
+ *
+ */
+public interface EndianType {
 
-    /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
-     *
-     * @param argv The command line arguments.
-     * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    /** Identifier for big-endian byte ordering (i.e. most significant 
+     * byte first) */
+    public static final int BIG_ENDIAN = 0;
 
-        CmdLnEncoder.main(argv);
-    }
+    /** Identifier for little-endian byte ordering (i.e. least
+     * significant byte first) */
+    public static final int LITTLE_ENDIAN = 1;
 }

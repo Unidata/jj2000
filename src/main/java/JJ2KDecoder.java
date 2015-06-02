@@ -41,13 +41,13 @@
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
 
-import jj2000.j2k.decoder.*;
+import ucar.jpeg.jj2000.j2k.decoder.*;
 
 /**
  * This class is a wrapper for the CmdLnDecoder class in the
- * jj2000.j2k.decoder package. It avoids having to list the whole package
+ * ucar.jpeg.jj2000.j2k.decoder package. It avoids having to list the whole package
  * hierarchy in the java virtual machine command line
- * (i.e. jj2000.j2k.decoder.Decoder).
+ * (i.e. ucar.jpeg.jj2000.j2k.decoder.Decoder).
  * */
 public class JJ2KDecoder {
 

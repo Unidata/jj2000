@@ -1,11 +1,11 @@
 /*
  * CVS identifier:
  *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
+ * $Id: CBlkCoordInfo.java,v 1.9 2001/09/14 09:32:53 grosbois Exp $
  *
- * Class:                   JJ2KEncoder
+ * Class:                   CBlkCoordInfo
  *
- * Description:             Wrapper for the CmdLnEncoder class.
+ * Description:             Used to store the code-blocks coordinates.
  *
  *
  *
@@ -40,29 +40,43 @@
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
+package ucar.jpeg.jj2000.j2k.codestream;
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+import ucar.jpeg.jj2000.j2k.image.*;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This class is used to store the coordinates of code-blocks.
  * */
-public class JJ2KEncoder {
+public class CBlkCoordInfo extends CoordInfo {
 
-    /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
-     *
-     * @param argv The command line arguments.
+    /** The code-block horizontal and vertical indexes */
+    public Coord idx;
+    
+    /** 
+     * Constructor. Creates a CBlkCoordInfo object.
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    public CBlkCoordInfo() {
+        this.idx = new Coord(); 
+    }
 
-        CmdLnEncoder.main(argv);
+    /** 
+     * Constructor. Creates a CBlkCoordInfo object width specified code-block
+     * vertical and horizontal indexes.
+     *
+     * @param m Code-block vertical index.
+     *
+     * @param n Code-block horizontal index.
+     * */
+    public CBlkCoordInfo(int m,int n) {
+        this.idx = new Coord(n,m);
+    }
+    
+    /** 
+     * Returns code-block's information in a String 
+     * 
+     * @return String with code-block's information
+     * */
+    public String toString() {
+        return super.toString() + ",idx="+idx;
     }
 }

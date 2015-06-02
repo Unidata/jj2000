@@ -1,14 +1,14 @@
-/*
+/* 
  * CVS identifier:
- *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
- *
- * Class:                   JJ2KEncoder
- *
- * Description:             Wrapper for the CmdLnEncoder class.
- *
- *
- *
+ * 
+ * $Id: InvWTData.java,v 1.15 2001/09/20 13:07:09 grosbois Exp $
+ * 
+ * Class:                   InvWTData
+ * 
+ * Description:             <short description of class>
+ * 
+ * 
+ * 
  * COPYRIGHT:
  * 
  * This software module was originally developed by Raphaël Grosbois and
@@ -40,29 +40,38 @@
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
-
-import ucar.jpeg.jj2000.j2k.encoder.*;
+package ucar.jpeg.jj2000.j2k.wavelet.synthesis;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This interface extends the MultiResImgData interface with the methods that
+ * are necessary for inverse wavelet data (i.e. data that is the source to an
+ * inverse wavlet trasnform).
  * */
-public class JJ2KEncoder {
+public interface InvWTData extends MultiResImgData {
 
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+     * Returns the subband tree, for the specified tile-component. This method
+     * returns the root element of the subband tree structure, see 'Subband'
+     * and 'SubbandSyn'. The tree comprises all the available resolution
+     * levels.
      *
-     * @param argv The command line arguments.
+     * @param t The index of the tile, from 0 to T-1.
+     *
+     * @param c The index of the component, from 0 to C-1.
+     *
+     * @return The root of the tree structure.
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
+    public SubbandSyn getSynSubbandTree(int t,int c);
 
-        CmdLnEncoder.main(argv);
-    }
+    /**
+     * Returns the horizontal code-block partition origin. Allowable values
+     * are 0 and 1, nothing else.
+     * */
+    public int getCbULX();
+
+    /**
+     * Returns the vertical code-block partition origin Allowable values are 0
+     * and 1, nothing else.
+     * */
+    public int getCbULY();
 }

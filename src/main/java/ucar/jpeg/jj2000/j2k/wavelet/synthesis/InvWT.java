@@ -1,14 +1,15 @@
-/*
+/* 
  * CVS identifier:
- *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
- *
- * Class:                   JJ2KEncoder
- *
- * Description:             Wrapper for the CmdLnEncoder class.
- *
- *
- *
+ * 
+ * $Id:
+ * 
+ * Class:                   InvWT
+ * 
+ * Description:             The interface for implementations of a inverse
+ *                          wavelet transform.
+ * 
+ * 
+ * 
  * COPYRIGHT:
  * 
  * This software module was originally developed by Raphaël Grosbois and
@@ -40,29 +41,40 @@
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
  * */
+package ucar.jpeg.jj2000.j2k.wavelet.synthesis;
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+import ucar.jpeg.jj2000.j2k.wavelet.*;
 
 /**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
+ * This interface extends the WaveletTransform with the specifics of inverse
+ * wavelet transforms. Classes that implement inverse wavelet transfoms should
+ * implement this interface.
+ *
+ * <p>This class does not define the methods to transfer data, just the
+ * specifics to inverse wavelet transform. Different data transfer methods are
+ * envisageable for different transforms.</p>
  * */
-public class JJ2KEncoder {
+public interface InvWT extends WaveletTransform {
 
     /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
+     * Sets the image reconstruction resolution level. A value of 0 means
+     * reconstruction of an image with the lowest resolution (dimension)
+     * available.
      *
-     * @param argv The command line arguments.
+     * <p>Note: Image resolution level indexes may differ from tile-component
+     * resolution index. They are indeed indexed starting from the lowest
+     * number of decomposition levels of each component of each tile.</p>
+     *
+     * <p>Example: For an image (1 tile) with 2 components (component 0 having
+     * 2 decomposition levels and component 1 having 3 decomposition levels),
+     * the first (tile-) component has 3 resolution levels and the second one
+     * has 4 resolution levels, whereas the image has only 3 resolution levels
+     * available.</p>
+     *
+     * @param rl The image resolution level.
+     *
+     * @return The vertical coordinate of the image origin in the canvas
+     * system, on the reference grid.
      * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
-
-        CmdLnEncoder.main(argv);
-    }
+    public void setImgResLevel(int rl);
 }

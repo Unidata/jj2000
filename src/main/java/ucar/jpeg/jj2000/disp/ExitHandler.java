@@ -1,14 +1,14 @@
-/*
+/* 
  * CVS identifier:
- *
- * $Id: JJ2KEncoder.java,v 1.10 2001/10/26 12:31:43 grosbois Exp $
- *
- * Class:                   JJ2KEncoder
- *
- * Description:             Wrapper for the CmdLnEncoder class.
- *
- *
- *
+ * 
+ * $Id: ExitHandler.java,v 1.6 2000/09/05 09:21:59 grosbois Exp $
+ * 
+ * Class:                   ExitHandler
+ * 
+ * Description:             Handles exiting from window close event
+ * 
+ * 
+ * 
  * COPYRIGHT:
  * 
  * This software module was originally developed by Raphaël Grosbois and
@@ -39,30 +39,32 @@
  * derivative works of this software module.
  * 
  * Copyright (c) 1999/2000 JJ2000 Partners.
- * */
+ * 
+ * 
+ * 
+ */
+package ucar.jpeg.jj2000.disp;
 
-import ucar.jpeg.jj2000.j2k.encoder.*;
+import ucar.jpeg.jj2000.j2k.decoder.*;
 
-/**
- * This class is a wrapper for the CmdLnEncoder class in the
- * ucar.jpeg.jj2000.j2k.encoder package. It is used to avoid having to list the whole
- * package hierarchy in the java virtual machine command line.
- * */
-public class JJ2KEncoder {
+import java.awt.event.*;
 
-    /**
-     * The starting point of the program. It forwards the call to the
-     * CmdLnEncoder class.
-     *
-     * @param argv The command line arguments.
-     * */
-    public static void main(String argv[]) {
-        if (argv.length == 0) {
-            System.err.println("JJ2KEncoder: JJ2000's JPEG 2000 Encoder\n");
-            System.err.println("    use JJ2KEncoder -u to get help\n");
-            System.exit(1);
-        }
 
-        CmdLnEncoder.main(argv);
+/** This class implements the WindowHandler for the ImageFrames */
+public class ExitHandler extends WindowAdapter {
+    /** The decoder instance */
+    private Decoder dec;
+
+    /** 
+     * Class constructor. Keep a reference to the decoder to properly
+     * exit when windowClosing method is called. */
+    public ExitHandler(Decoder dec){
+        this.dec = dec;
+    }
+
+
+    /** Close the window and exit the application */
+    public void windowClosing(WindowEvent evt) {
+        dec.exit();
     }
 }
