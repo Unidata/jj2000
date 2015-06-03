@@ -260,10 +260,10 @@ public class Decoder implements Runnable {
           "\n- Marker segments value in main and tile-part headers,"+
           "\n- Tile-part length and position within the code-stream.", "off"},
 	{ "nocolorspace",null,
-	  "Ignore any ucar.jpeg.colorspace information in the image.","off"},
+	  "Ignore any colorspace information in the image.","off"},
 	{ "colorspace_debug", null,
 	  "Print debugging messages when an error is encountered in the"+
-	  " ucar.jpeg.colorspace module.","off"}
+	  " colorspace module.","off"}
     };
 
     /**
@@ -698,11 +698,11 @@ public class Decoder implements Runnable {
 			   (":\n"+e.getMessage()) : ""),1,e);
 		    return; 
 		} catch (ColorSpaceException e) {
-		    error("error processing jp2 ucar.jpeg.colorspace information"+
+		    error("error processing jp2 colorspace information"+
 			  ((e.getMessage() != null) ?
 			   (": "+e.getMessage()) : "    "),1,e);
 		    return; }
-	    } else { // Skip ucar.jpeg.colorspace mapping
+	    } else { // Skip colorspace mapping
                  color = ictransf; 
 	    }
                  

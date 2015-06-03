@@ -181,11 +181,11 @@ public class ColorSpace {
         else return cdbox.getCn(c+1); }
 
 
-    /** Return the ucar.jpeg.colorspace method (Profiled, enumerated, or palettized). */
+    /** Return the colorspace method (Profiled, enumerated, or palettized). */
     public MethodEnum getMethod () {
         return csbox.getMethod(); }
 
-    /** Return the ucar.jpeg.colorspace (sYCC, sRGB, sGreyScale). */
+    /** Return the colorspace (sYCC, sRGB, sGreyScale). */
     public CSEnum getColorSpace () {
         return csbox.getColorSpace(); }
 
@@ -258,15 +258,15 @@ public class ColorSpace {
     /** method enumeration */ 
     public final static MethodEnum ENUMERATED = new MethodEnum ("enumerated");
     
-    /** ucar.jpeg.colorspace enumeration */
+    /** colorspace enumeration */
     public final static CSEnum sRGB       = new CSEnum("sRGB");
-    /** ucar.jpeg.colorspace enumeration */
+    /** colorspace enumeration */
     public final static CSEnum GreyScale  = new CSEnum("GreyScale");
-    /** ucar.jpeg.colorspace enumeration */
+    /** colorspace enumeration */
     public final static CSEnum sYCC       = new CSEnum("sYCC");
-    /** ucar.jpeg.colorspace enumeration */
+    /** colorspace enumeration */
     public final static CSEnum Illegal    = new CSEnum("Illegal");
-    /** ucar.jpeg.colorspace enumeration */
+    /** colorspace enumeration */
     public final static CSEnum Unknown    = new CSEnum("Unknown");
 
     /**

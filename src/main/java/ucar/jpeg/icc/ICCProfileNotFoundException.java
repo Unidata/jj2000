@@ -9,7 +9,7 @@
 package ucar.jpeg.icc;
 
 /**
- * This exception is thrown when an image contains no ucar.jpeg.icc profile.
+ * This exception is thrown when an image contains no icc profile.
  * is incorrect.
  * 
  * @see		ucar.jpeg.jj2000.j2k.icc.ICCProfile
@@ -31,7 +31,7 @@ public class ICCProfileNotFoundException extends ICCProfileException {
      * Empty constructor
      */
     ICCProfileNotFoundException () {
-        super ("no ucar.jpeg.icc profile in image"); }
+        super ("no icc profile in image"); }
     
     /* end class ICCProfileNotFoundException */ }
 

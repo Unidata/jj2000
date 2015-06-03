@@ -54,7 +54,7 @@ public class ICCProfiler extends ColorSpaceMapper {
     /**
      * Factory method for creating instances of this class.
      *   @param src -- source of image data
-     *   @param csMap -- provides ucar.jpeg.colorspace info
+     *   @param csMap -- provides colorspace info
      * @return ICCProfiler instance
      * @exception IOException profile access exception
      * @exception ICCProfileException profile content exception
@@ -70,7 +70,7 @@ public class ICCProfiler extends ColorSpaceMapper {
      * all data objects (input, working, output).
      *
      *   @param src -- Source of image data
-     *   @param csm -- provides ucar.jpeg.colorspace info
+     *   @param csm -- provides colorspace info
      *
      * @exception IOException
      * @exception ICCProfileException
@@ -180,7 +180,7 @@ public class ICCProfiler extends ColorSpaceMapper {
 
         try {
             if (ncomps != 1 && ncomps != 3) {
-                String msg = "ICCProfiler: ucar.jpeg.icc profile _not_ applied to " +
+                String msg = "ICCProfiler: icc profile _not_ applied to " +
                     ncomps + " component image";
                 FacilityManager.getMsgLogger().printmsg(MsgLogger.WARNING,msg);
                 return src.getCompData(outblk, c); }

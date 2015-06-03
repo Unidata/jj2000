@@ -9,7 +9,7 @@
 package ucar.jpeg.icc;
 
 /**
- * This exception is thrown when the content of an an ucar.jpeg.icc profile
+ * This exception is thrown when the content of an an icc profile
  * is in someway incorrect.
  * 
  * @see		ucar.jpeg.jj2000.j2k.icc.ICCProfile
@@ -31,7 +31,7 @@ public class ICCProfileInvalidException extends ICCProfileException {
      * Empty constructor
      */
     ICCProfileInvalidException () {
-        super ("ucar.jpeg.icc profile is invalid"); }
+        super ("icc profile is invalid"); }
     
     /* end class ICCProfileInvalidException */ }
 

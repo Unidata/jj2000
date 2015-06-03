@@ -31,7 +31,7 @@ public class PalettizedColorSpaceMapper extends ColorSpaceMapper {
     /**
      * Factory method for creating instances of this class.
      *   @param src -- source of image data
-     *   @param csMap -- provides ucar.jpeg.colorspace info
+     *   @param csMap -- provides colorspace info
      * @return PalettizedColorSpaceMapper instance
      */
     public static BlkImgDataSrc createInstance(BlkImgDataSrc src, 
@@ -45,7 +45,7 @@ public class PalettizedColorSpaceMapper extends ColorSpaceMapper {
      * all data objects (input, working, and output).
      *
      *   @param src -- Source of image data
-     *   @param csm -- provides ucar.jpeg.colorspace info
+     *   @param csm -- provides colorspace info
      */
     protected PalettizedColorSpaceMapper(BlkImgDataSrc src, ColorSpace csMap)  
         throws ColorSpaceException {

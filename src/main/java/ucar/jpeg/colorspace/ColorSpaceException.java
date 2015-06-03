@@ -10,7 +10,7 @@ package ucar.jpeg.colorspace;
 
 /**
  * This exception is thrown when the content of an
- * image contains an incorrect ucar.jpeg.colorspace box
+ * image contains an incorrect colorspace box
  * 
  * @see		ucar.jpeg.jj2000.j2k.colorspace.ColorSpaceMapper
  * @version	1.0

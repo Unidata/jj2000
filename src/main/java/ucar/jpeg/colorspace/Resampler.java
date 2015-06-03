@@ -29,7 +29,7 @@ public class Resampler extends ColorSpaceMapper {
     /**
      * Factory method for creating instances of this class.
      *   @param src -- source of image data
-     *   @param csMap -- provides ucar.jpeg.colorspace info
+     *   @param csMap -- provides colorspace info
      * @return Resampler instance
      */
     public static BlkImgDataSrc createInstance(BlkImgDataSrc src, 
@@ -45,7 +45,7 @@ public class Resampler extends ColorSpaceMapper {
      *  respampling in either direction (row, column).
      *
      *   @param src -- Source of image data
-     *   @param csm -- provides ucar.jpeg.colorspace info
+     *   @param csm -- provides colorspace info
      */
     protected Resampler (BlkImgDataSrc src, ColorSpace csMap)  
         throws ColorSpaceException {

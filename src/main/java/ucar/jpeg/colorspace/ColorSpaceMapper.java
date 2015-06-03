@@ -55,7 +55,7 @@ public abstract class ColorSpaceMapper extends ImgDataAdapter
     /** The list of parameters that are accepted for ICC profiling.*/
     private final static String [][] pinfo = {
         { "IcolorSpacedebug", null,
-          "Print debugging messages during ucar.jpeg.colorspace mapping.","off"}
+          "Print debugging messages during colorspace mapping.","off"}
     };
 
     /** Parameter Specs */
@@ -180,7 +180,7 @@ public abstract class ColorSpaceMapper extends ImgDataAdapter
     /**
      * Factory method for creating instances of this class.
      *   @param src -- source of image data
-     *   @param csMap -- provides ucar.jpeg.colorspace info
+     *   @param csMap -- provides colorspace info
      * @return ColorSpaceMapper instance
      * @exception IOException profile access exception
      */
@@ -217,7 +217,7 @@ public abstract class ColorSpaceMapper extends ImgDataAdapter
      * all data objects (input, working, and output).
      *
      *   @param src -- Source of image data
-     *   @param csm -- provides ucar.jpeg.colorspace info
+     *   @param csm -- provides colorspace info
      *
      */
     protected ColorSpaceMapper (BlkImgDataSrc src, ColorSpace csMap)  

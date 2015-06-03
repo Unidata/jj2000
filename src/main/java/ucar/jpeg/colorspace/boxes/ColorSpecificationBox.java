@@ -62,7 +62,7 @@ public final class ColorSpecificationBox extends JP2Box {
             default:
 		FacilityManager.getMsgLogger().
 		    printmsg(MsgLogger.WARNING,
-			     "Unknown enumerated ucar.jpeg.colorspace (" +
+			     "Unknown enumerated colorspace (" +
 			     cs + ") in color specification box");
 		colorSpace = ColorSpace.Unknown;
             }
@@ -80,7 +80,7 @@ public final class ColorSpecificationBox extends JP2Box {
         }
     }
 
-    /* Return an enumeration for the ucar.jpeg.colorspace method. */
+    /* Return an enumeration for the colorspace method. */
     public ColorSpace.MethodEnum getMethod () {
         return method; }
 
@@ -92,7 +92,7 @@ public final class ColorSpecificationBox extends JP2Box {
     public String getColorSpaceString () {
         return colorSpace.value; }
 
-    /* Return a String representation of the ucar.jpeg.colorspace method. */
+    /* Return a String representation of the colorspace method. */
     public String getMethodString () {
         return method.value; }
 

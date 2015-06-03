@@ -368,7 +368,7 @@ public abstract class ICCProfile {
 
     /**
      * ParameterList constructor 
-     *   @param csb provides ucar.jpeg.colorspace information
+     *   @param csb provides colorspace information
      */
     protected ICCProfile (ColorSpace csm) 
         throws ColorSpaceException, ICCProfileInvalidException {
@@ -388,7 +388,7 @@ public abstract class ICCProfile {
         tags = ICCTagTable.createInstance(data);
                 
         
-        // Verify that the data pointed to by ucar.jpeg.icc is indeed a valid profile
+        // Verify that the data pointed to by icc is indeed a valid profile
         // and that it is possibly of one of the Restricted ICC types. The simplest way to check    
         // this is to verify that the profile signature is correct, that it is an input profile,    
         // and that the PCS used is XYX.    

@@ -56,7 +56,7 @@ public final class ImageHeaderBox extends JP2Box
         rep.append("bpc= ").append(String.valueOf(bpc)).append(", ");
         rep.append("c= ").append(String.valueOf(c)).append(eol).append("  ");
 
-        rep.append("image ucar.jpeg.colorspace is ").append(new String (unk==true?"known":"unknown"));
+        rep.append("image colorspace is ").append(new String (unk==true?"known":"unknown"));
         rep.append(", the image ")
             .append(new String (ipr==true?"contains ":"does not contain "))
             .append("intellectual property").append("]");

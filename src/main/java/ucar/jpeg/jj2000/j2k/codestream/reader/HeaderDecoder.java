@@ -2405,8 +2405,8 @@ public class HeaderDecoder implements ProgressionType, Markers,
      *
      * @return The color space mapping object
      * @exception IOException image access exception
-     * @exception ICCProfileException if image contains a bad ucar.jpeg.icc profile
-     * @exception ColorSpaceException if image contains a bad ucar.jpeg.colorspace box
+     * @exception ICCProfileException if image contains a bad icc profile
+     * @exception ColorSpaceException if image contains a bad colorspace box
      **/
     public BlkImgDataSrc createColorSpaceMapper(BlkImgDataSrc src,
 						ColorSpace csMap)
@@ -2425,7 +2425,7 @@ public class HeaderDecoder implements ProgressionType, Markers,
       *
       * @return The channel definition mapping object
       * @exception IOException image access exception
-      * @exception ColorSpaceException if image contains a bad ucar.jpeg.colorspace box
+      * @exception ColorSpaceException if image contains a bad colorspace box
       **/
      public BlkImgDataSrc createChannelDefinitionMapper(BlkImgDataSrc src,
 							ColorSpace csMap)
@@ -2444,7 +2444,7 @@ public class HeaderDecoder implements ProgressionType, Markers,
      *
      * @return a  PalettizedColorSpaceMapper instance
      * @exception IOException image access exception
-     * @exception ColorSpaceException if image contains a bad ucar.jpeg.colorspace box
+     * @exception ColorSpaceException if image contains a bad colorspace box
      **/
     public BlkImgDataSrc createPalettizedColorSpaceMapper(BlkImgDataSrc src,
 							  ColorSpace csMap)
@@ -2454,7 +2454,7 @@ public class HeaderDecoder implements ProgressionType, Markers,
     /**
      * Creates and returns the Resampler which converts the input
      * source to one in which all channels have the same number of
-     * samples.  This is required for ucar.jpeg.colorspace conversions.
+     * samples.  This is required for colorspace conversions.
      *
      * @param src The bit stream reader agent where to get code-block
      * data from.
@@ -2462,7 +2462,7 @@ public class HeaderDecoder implements ProgressionType, Markers,
      *
      * @return The resampled BlkImgDataSrc
      * @exception IOException image access exception
-     * @exception ColorSpaceException if image contains a bad ucar.jpeg.colorspace box
+     * @exception ColorSpaceException if image contains a bad colorspace box
      **/
     public BlkImgDataSrc createResampler(BlkImgDataSrc src,
 					 ColorSpace csMap)

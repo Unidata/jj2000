@@ -18,7 +18,7 @@ import ucar.jpeg.jj2000.j2k.util.MsgLogger;
 
 /**
  * This decodes maps which are defined in the sYCC 
- * ucar.jpeg.colorspace into the sRGB colorspadce.
+ * colorspace into the sRGB colorspadce.
  * 
  * @see		ucar.jpeg.jj2000.j2k.colorspace.ColorSpace
  * @version	1.0
@@ -26,7 +26,7 @@ import ucar.jpeg.jj2000.j2k.util.MsgLogger;
  */
 public class SYccColorSpaceMapper extends ColorSpaceMapper
 {
-    /* sYCC ucar.jpeg.colorspace matrix */
+    /* sYCC colorspace matrix */
         
     /** Matrix component for ycc transform. */ static protected float Matrix00 = 1;
     /** Matrix component for ycc transform. */ static protected float Matrix01 = 0;
@@ -42,7 +42,7 @@ public class SYccColorSpaceMapper extends ColorSpaceMapper
     /**
      * Factory method for creating instances of this class.
      *   @param src -- source of image data
-     *   @param csMap -- provides ucar.jpeg.colorspace info
+     *   @param csMap -- provides colorspace info
      * @return SYccColorSpaceMapper instance
      */
     public static BlkImgDataSrc createInstance (BlkImgDataSrc src, ColorSpace csMap) 
@@ -54,7 +54,7 @@ public class SYccColorSpaceMapper extends ColorSpaceMapper
      * all data objects (input, working, and output).
      *
      *   @param src -- Source of image data
-     *   @param csm -- provides ucar.jpeg.colorspace info
+     *   @param csm -- provides colorspace info
      */
     protected SYccColorSpaceMapper (BlkImgDataSrc src, ColorSpace csMap)  
         throws ColorSpaceException {
