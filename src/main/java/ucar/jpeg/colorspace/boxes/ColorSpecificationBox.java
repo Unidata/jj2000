@@ -27,6 +27,7 @@ public final class ColorSpecificationBox extends JP2Box {
     private ColorSpace.MethodEnum method     = null;
     private ColorSpace.CSEnum colorSpace = null;
     private byte[] iccProfile = null;
+    private int cs, rawmethod, approxAccuracy;
 
     /**
      * Construct a ColorSpecificationBox from an input image.
@@ -45,10 +46,11 @@ public final class ColorSpecificationBox extends JP2Box {
         byte[] boxHeader = new byte[256];
         in.seek (dataStart);
         in.readFully(boxHeader,0,11);
-        switch (boxHeader[0]) {
+        rawmethod = boxHeader[0];
+        approxAccuracy = boxHeader[2];
+        switch (rawmethod) {
         case 1:    
-            method = ColorSpace.ENUMERATED;
-            int cs = ICCProfile.getInt(boxHeader,3);
+            cs = ICCProfile.getInt(boxHeader,3);
             switch (cs) {
             case 16:
                 colorSpace = ColorSpace.sRGB;
@@ -69,24 +71,47 @@ public final class ColorSpecificationBox extends JP2Box {
             break;  // from switch (boxHeader[0])...
         case 2:
             method = ColorSpace.ICC_PROFILED;
+            cs = -1;
             int size =  ICCProfile.getInt (boxHeader, 3);
             iccProfile = new byte [size];
             in.seek(dataStart+3);
             in.readFully (iccProfile,0,size); 
             break;  // from switch (boxHeader[0])...
         default:
-            throw new ColorSpaceException ("Bad specification method ("+
-					   boxHeader[0]+") in " + this);
+            throw new ColorSpaceException ("Bad specification method ("+ boxHeader[0]+") in " + this);
         }
     }
 
     /* Return an enumeration for the colorspace method. */
     public ColorSpace.MethodEnum getMethod () {
-        return method; }
+        return method;
+    }
 
     /* Return an enumeration for the ucar.jpeg.colorspace. */
     public ColorSpace.CSEnum getColorSpace () {
-        return colorSpace; }
+        return colorSpace;
+    }
+
+    /**
+     * Return the value of the Method field
+     */
+    public int getRawMethod () {
+        return rawmethod;
+    }
+
+    /**
+     * Return the value of the approxAccuracy field
+     */
+    public int getRawApproximationAccuracy () {
+        return approxAccuracy;
+    }
+
+    /**
+     * Return the value of the ColorSpace field
+     */
+    public int getRawColorSpace () {
+        return cs;
+    }
 
     /* Return a String representation of the ucar.jpeg.colorspace. */
     public String getColorSpaceString () {
