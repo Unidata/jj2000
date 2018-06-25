@@ -654,6 +654,11 @@ public class FileBitstreamReaderAgent extends BitstreamReaderAgent
         }
 	// TNsot
 	int nrOfTileParts = in.read();
+        // SPEC DEVIATION: Spec declares TNsot as "Number of tile-parts of a tile in the codestream",
+        // but many images seem to treat this value as "Maximum number of tile parts", i.e. one more.
+        // Reading less tiles than expected is handled, so we can safely increase this value by
+        // one for images.
+        nrOfTileParts++;
         ms.tnsot = nrOfTileParts;
         hi.sot.put("t"+tile+"_tp"+tilePart,ms);
         if(nrOfTileParts==0) { // The number of tile-part is not specified in

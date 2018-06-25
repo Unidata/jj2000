@@ -8,6 +8,7 @@
 
 package ucar.jpeg.colorspace;
 
+import java.util.*;
 import java.io.IOException;
 import ucar.jpeg.jj2000.j2k.fileformat.FileFormatBoxes;
 import ucar.jpeg.jj2000.j2k.util.ParameterList;
@@ -52,6 +53,7 @@ public class ColorSpace {
     private ColorSpecificationBox csbox = null;
     private ChannelDefinitionBox  cdbox = null;
     private ImageHeaderBox        ihbox = null;
+    private List                  csboxes = null;
 
     /** Input image */
     private RandomAccessIO in=null;
@@ -152,6 +154,10 @@ public class ColorSpace {
                 break;
             case FileFormatBoxes.COLOUR_SPECIFICATION_BOX:
                 csbox = new ColorSpecificationBox (in,boxStart);
+                if (csboxes == null) {
+                    csboxes = new ArrayList();
+                }
+                csboxes.add(csbox);
                 break;
             case FileFormatBoxes.CHANNEL_DEFINITION_BOX:
                 cdbox = new ChannelDefinitionBox (in,boxStart);
@@ -192,6 +198,11 @@ public class ColorSpace {
     /** Return number of channels in the palette. */
     public  /*final*/ PaletteBox getPaletteBox() {
         return pbox; }
+
+    public List getColorSpecificationBoxes() {
+        return csboxes == null ? Collections.emptyList() : csboxes;
+    }
+
 
     /** Return number of channels in the palette. */
     public int getPaletteChannels() {
