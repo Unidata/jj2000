@@ -43,7 +43,7 @@ running.
 
     <groupId>edu.ucar</groupId>
     <artifactId>jj2000</artifactId>
-    <version>5.4-SNAPSHOT</version>
+    <version>5.4</version>
     <packaging>jar</packaging>
     <name>Unidata jj2000</name>
     <description>Fork of jpeg2k code from https://code.google.com/p/jj2000/.
