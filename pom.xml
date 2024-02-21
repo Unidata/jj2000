@@ -48,6 +48,9 @@ running.
     <name>Unidata jj2000</name>
     <description>Fork of jpeg2k code from https://code.google.com/p/jj2000/.
         This is a dependency for support of compression in Grib2 files in netCDF-java and TDS.
+        This repo is NOT under active development other than updates for bug fixes.   
+        Implementing new features and functionality for this code base is beyond the current scope 
+        of our development and support for the THREDDS project.
         We welcome bug fixes and other contributions to this code.
     </description>
     <url>https://github.com/Unidata/jj2000</url>
